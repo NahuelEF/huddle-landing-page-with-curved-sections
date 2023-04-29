@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
 
     <link
       rel="icon"
@@ -12,55 +11,64 @@
       href="./images/favicon-32x32.png"
     />
 
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
     <title>Nahuel Fedele | Huddle landing page with curved sections</title>
   </head>
   <body>
     <header class="header">
-      <a href="#">
-        <img class="header__img" src="./images/logo.svg" alt="Huddle logo" />
+      <a class="home" href="#">
+        <img class="home__img" src="./images/logo.svg" alt="Huddle logo" />
       </a>
-      <button class="header__button" type="button">Try it free</button>
+      <nav class="nav">
+        <button class="nav__button" type="button">Try it free</button>
+      </nav>
     </header>
 
     <main class="main">
-      <h1 class="main__title">Build The Community Your Fans Will Love</h1>
-      <p class="paragraph">
-        Huddle re-imagines the way we build communities. You have a voice, but
-        so does your audience. Create connections with your users as you engage
-        in genuine discussion.
-      </p>
-      <button class="button" type="button">Get Started For Free</button>
-      <img
-        class="img"
-        src="./images/screen-mockups.svg"
-        alt="Screen mockups"
-        loading="lazy"
-      />
+      <section class="section">
+        <h1 class="section__title section__title--main">
+          Build the Community Your Fans Will Love
+        </h1>
+        <p class="section__paragraph">
+          Huddle re-imagines the way we build communities. You have a voice, but
+          so does your audience. Create connections with your users as you
+          engage in genuine discussion.
+        </p>
+        <button class="section__button" type="button">
+          Get Started For Free
+        </button>
+      </section>
 
-      <ul class="list">
-        <li class="item">
-          <img
-            class="item__img"
-            src="./images/icon-communities.svg"
-            alt="Communities"
-            draggable="false"
-            loading="lazy"
-          />
-          <strong class="item__title">1.4k+</strong>
-          <span class="item__paragraph">Communities Formed</span>
-        </li>
-        <li class="item">
-          <img
-            class="item__img"
-            src="./images/icon-messages.svg"
-            alt="Messages"
-            draggable="false"
-            loading="lazy"
-          />
-          <strong class="item__title">2.7m+</strong>
-          <span class="item__paragraph">Messages Sent</span>
-        </li>
-      </ul>
+      <section class="section">
+        <img
+          class="section__img"
+          src="./images/screen-mockups.svg"
+          alt="Screen mockups"
+          loading="lazy"
+        />
+
+        <ul class="list">
+          <li class="item">
+            <span class="item__icon communities"></span>
+            <strong class="item__title">1.4k+</strong>
+            <span class="item__paragraph">Communities Formed</span>
+          </li>
+          <li class="item">
+            <span class="item__icon messages"></span>
+            <strong class="item__title">2.7m+</strong>
+            <span class="item__paragraph">Messages Sent</span>
+          </li>
+        </ul>
+      </section>
 
       <section class="section">
         <img
@@ -76,6 +84,7 @@
           with a feedback form.
         </p>
       </section>
+
       <section class="section">
         <img
           class="section__img"
@@ -89,6 +98,7 @@
           online? Our threads have just-in-time loading for a more natural flow.
         </p>
       </section>
+
       <section class="section">
         <img
           class="section__img"
@@ -103,6 +113,7 @@
           users can start chatting immediately.
         </p>
       </section>
+
       <section class="section">
         <h2 class="section__title">Ready To Build Your Community?</h2>
         <button class="section__button" type="button">
@@ -142,17 +153,15 @@
           quam, hendrerit lacinia vestibulum a, ultrices quis sem.
         </p>
         <div>
-          <img src="./images/icon-phone.svg" alt="Phone icon" loading="lazy" />
+          <span class="icon icon--phone"></span>
           <span>Phone: +1-543-123-4567</span>
         </div>
         <div>
-          <img src="./images/icon-email.svg" alt="Email icon" loading="lazy" />
+          <span class="icon icon--email"></span>
           <span>example@huddle.com</span>
         </div>
         <div>
-          <i>Icon</i>
-          <i>Icon</i>
-          <i>Icon</i>
+          <span>Facebook</span> | <span>Instagram</span> | <span>Twitter</span>
         </div>
       </div>
       <div>

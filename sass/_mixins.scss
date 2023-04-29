@@ -1,0 +1,45 @@
+@use "sass:math";
+
+$font-size: 16px;
+
+@function rem($pixel: $font-size) {
+  $size: math.div($pixel, $font-size);
+  @return #{$size}rem;
+}
+
+@mixin displayFlex($direction: false, $align, $justify, $gap: null) {
+  display: flex;
+  @if ($direction) {
+    flex-direction: column;
+  }
+  align-items: $align;
+  justify-content: $justify;
+  gap: $gap;
+}
+
+@mixin button($outline: false, $radius: 50px) {
+  border-radius: $radius;
+  @if ($outline) {
+    border: 1px solid var(--primary-pink);
+    background-color: var(--neutral-very-pale-blue);
+    color: var(--primary-pink);
+  } @else {
+    border: none;
+    background-color: var(--primary-pink);
+    color: var(--neutral-very-pale-blue);
+  }
+
+  text-transform: capitalize;
+}
+
+@mixin font(
+  $size: $font-size,
+  $weight: var(--normal-weight),
+  $family: var(--primary-font-family)
+) {
+  font: {
+    family: $family;
+    weight: $weight;
+    size: rem($size);
+  }
+}
