@@ -4,7 +4,6 @@
 .header {
   width: 100%;
   padding: mixins.rem(variables.$padding);
-  background-color: var(--neutral-very-pale-blue);
   @include mixins.displayFlex($align: center, $justify: space-between);
 }
 

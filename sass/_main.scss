@@ -21,8 +21,10 @@
       var(--bolder-weight),
       23px
     );
-    text-transform: capitalize;
-    text-align: center;
+    text: {
+      transform: capitalize;
+      align: center;
+    }
 
     &--main {
       @include mixins.font(
@@ -35,12 +37,12 @@
 
   &__paragraph {
     width: 100%;
-    @include mixins.font($size: 14.45px);
     color: var(--neutral-very-dark-cyan);
+    @include mixins.font($size: 14.45px);
   }
 
   &__button {
-    padding: mixins.rem(11px) mixins.rem(35px);
+    padding: mixins.rem(13px) mixins.rem(41px);
     @include mixins.button();
     @include mixins.font($size: 14.45px, $weight: var(--bold-weight));
   }
@@ -61,9 +63,11 @@
     $contain: 40px;
     width: mixins.rem($contain);
     height: mixins.rem($contain);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: contain;
+    background: {
+      repeat: no-repeat;
+      position: center center;
+      size: contain;
+    }
     align-self: flex-start;
   }
 

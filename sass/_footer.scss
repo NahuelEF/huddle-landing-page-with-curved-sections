@@ -1,0 +1,87 @@
+@use "mixins";
+@use "variables";
+
+.footer {
+  border-top: 1px solid black;
+  color: var(--neutral-very-pale-blue);
+  background-color: var(--neutral-very-dark-cyan);
+}
+
+.contain {
+  padding: mixins.rem(variables.$padding);
+  @include mixins.displayFlex(true, start, center, mixins.rem(24px));
+
+  &__title {
+    text-transform: uppercase;
+    @include mixins.font($weight: var(--bold-weight));
+  }
+
+  &__paragraph {
+    width: 100%;
+    @include mixins.font($size: 14.45px);
+
+    &--center {
+      text-align: end;
+    }
+  }
+
+  &__logo {
+    svg {
+      width: 100%;
+      path {
+        fill: var(--neutral-very-pale-blue);
+      }
+    }
+  }
+
+  &__link {
+    text-decoration: 1px underline var(--primary-pink);
+  }
+  
+  border-bottom: 1px dashed white;
+}
+
+.form {
+  $radius: 5px;
+
+  width: 100%;
+  @include mixins.displayFlex(true, end, center, mixins.rem());
+
+  &__input {
+    width: 100%;
+    border-radius: $radius;
+    padding: mixins.rem();
+    background-color: var(--neutral-very-pale-blue);
+    color: var(--neutral-very-dark-cyan);
+    @include mixins.font($size: 14.45px);
+    caret-color: black;
+    outline: none;
+
+    &::placeholder {
+      @include mixins.font(inherit, inherit, inherit);
+    }
+  }
+
+  &__button {
+    width: 50%;
+    padding: mixins.rem(15px);
+    @include mixins.button($radius: $radius);
+    @include mixins.font($weight: var(--bolder-weight), $size: 14.45px);
+  }
+}
+
+.contact {
+  @include mixins.displayFlex(
+    $align: center,
+    $justify: initial,
+    $gap: mixins.rem()
+  );
+
+  &__icon {
+    width: mixins.rem(20px);
+  }
+
+  &__span {
+    @include mixins.font($size: 14.45px);
+  }
+}

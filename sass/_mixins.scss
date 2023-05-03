@@ -21,7 +21,6 @@ $font-size: 16px;
   border-radius: $radius;
   @if ($outline) {
     border: 1px solid var(--primary-pink);
-    background-color: var(--neutral-very-pale-blue);
     color: var(--primary-pink);
   } @else {
     border: none;
