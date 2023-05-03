@@ -82,8 +82,8 @@ q:after {
 
 /* (Opcional) Configuramos el texto que seleccionamos */
 /* ::selection {
-  background-color: var(--negro);
-  color: var(--blanco);
+  background-color: black;
+  color: white;
 } */
 
 form,
@@ -119,4 +119,7 @@ body {
   font-size: 100%;
   font-family: var(--primary-font-family);
   color: var(--neutral-very-dark-cyan);
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

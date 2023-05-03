@@ -6,13 +6,14 @@ $padding: 24px;
   --primary-light-pink: hsl(321, 100%, 78%);
   --primary-light-red: hsl(0, 100%, 63%);
   --neutral-very-dark-cyan: hsl(192, 100%, 9%);
-  --neutral-very-pale-blue: hsl(207, 100%, 98%);
+  --neutral-very-pale-blue: hsl(210, 100%, 98%);
+  --neutral-gray: rgb(185, 186, 188);
 
   /* Typography */
   --primary-font-family: "Open Sans", sans-serif;
   --secondary-font-family: "Poppins", sans-serif;
 
-  --normal-weight: 600;
-  --light-weight: 400;
-  --bold-weight: 700;
+  --normal-weight: 400;
+  --bold-weight: 600;
+  --bolder-weight: 700;
 }
