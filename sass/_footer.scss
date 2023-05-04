@@ -9,7 +9,14 @@
 
 .contain {
   padding: mixins.rem(variables.$padding);
-  @include mixins.displayFlex(true, start, center, mixins.rem(24px));
+  @include mixins.displayFlex(true, start, center, mixins.rem(36px));
+
+  border-bottom: 1px dashed white;
+}
+
+.subcontain {
+  width: 100%;
+  @include mixins.displayFlex(true, initial, center, mixins.rem());
 
   &__title {
     text-transform: uppercase;
@@ -18,27 +25,28 @@
 
   &__paragraph {
     width: 100%;
+    padding-right: mixins.rem(4px);
     @include mixins.font($size: 14.45px);
 
-    &--center {
-      text-align: end;
+    &--size {
+      @include mixins.font($size: 12px);
+      text-align: center;
     }
   }
 
   &__logo {
-    svg {
-      width: 100%;
-      path {
-        fill: var(--neutral-very-pale-blue);
-      }
-    }
+    width: 50%;
   }
 
   &__link {
-    text-decoration: 1px underline var(--primary-pink);
+    color: var(--primary-pink);
+    font-style: italic;
+
+    &:hover,
+    :active {
+      text-decoration: 1px underline var(--primary-pink);
+    }
   }
-  
-  border-bottom: 1px dashed white;
 }
 
 .form {
@@ -70,6 +78,10 @@
   }
 }
 
+.contacts {
+  @include mixins.displayFlex(true, initial, center, mixins.rem());
+}
+
 .contact {
   @include mixins.displayFlex(
     $align: center,
@@ -83,5 +95,19 @@
 
   &__span {
     @include mixins.font($size: 14.45px);
+  }
+}
+
+.icons {
+  @include mixins.displayFlex(false, center, space-between, mixins.rem());
+
+  &__icon {
+    &:hover,
+    :active {
+      & .svg-inline--fa > path {
+        transition: ease-in-out 0.2s;
+        fill: hsl(203, 89%, 53%);
+      }
+    }
   }
 }
