@@ -61,10 +61,6 @@
     width: 100%;
     color: var(--primary-light-red);
     @include mixins.font($size: 13.45px);
-
-    & #error {
-      display: none;
-    }
   }
 
   &__input {
@@ -79,6 +75,10 @@
 
     &::placeholder {
       @include mixins.font(inherit, inherit, inherit);
+    }
+
+    &--error {
+      border: 1px solid var(--primary-light-red);
     }
   }
 

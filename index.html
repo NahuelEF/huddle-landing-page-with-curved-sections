@@ -148,17 +148,21 @@
             newsletter. We’ll never send you spam or pass on your email address
           </p>
         </div>
+
         <form class="form">
           <label class="form__label">
             <input
+              id="email"
               class="form__input"
               type="email"
+              name="email"
               title="Enter your email adress"
               placeholder="email@address.com"
+              required
             />
-            <span id="error"> Check your email please </span>
+            <span id="error"></span>
           </label>
-          <button class="form__button" type="button">Subscribe</button>
+          <button id="button" class="form__button" type="button">Subscribe</button>
         </form>
       </div>
 
@@ -227,5 +231,6 @@
         </p>
       </div>
     </footer>
+    <script src="./app.js"></script>
   </body>
 </html>

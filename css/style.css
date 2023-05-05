@@ -100,11 +100,6 @@ q:after {
   content: none;
 }
 
-/* (Opcional) Configuramos el texto que seleccionamos */
-/* ::selection {
-  background-color: black;
-  color: white;
-} */
 form,
 input,
 textarea,
@@ -430,9 +425,6 @@ body {
   font-weight: var(--normal-weight);
   font-size: 0.840625rem;
 }
-.form__label #error {
-  display: none;
-}
 .form__input {
   width: 100%;
   border-radius: 5px;
@@ -449,6 +441,9 @@ body {
   font-family: inherit;
   font-weight: inherit;
   font-size: inherit/16pxrem;
+}
+.form__input--error {
+  border: 1px solid var(--primary-light-red);
 }
 .form__button {
   width: 50%;
