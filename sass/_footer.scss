@@ -2,16 +2,18 @@
 @use "variables";
 
 .footer {
-  border-top: 1px solid black;
+  position: relative;
   color: var(--neutral-very-pale-blue);
   background-color: var(--neutral-very-dark-cyan);
+
+  &::before {
+    @include mixins.bgImage("footer-top-mobile", 53px);
+  }
 }
 
 .contain {
   padding: mixins.rem(variables.$padding);
   @include mixins.displayFlex(true, start, center, mixins.rem(36px));
-
-  border-bottom: 1px dashed white;
 }
 
 .subcontain {
@@ -55,6 +57,16 @@
   width: 100%;
   @include mixins.displayFlex(true, end, center, mixins.rem());
 
+  &__label {
+    width: 100%;
+    color: var(--primary-light-red);
+    @include mixins.font($size: 13.45px);
+
+    & #error {
+      display: none;
+    }
+  }
+
   &__input {
     width: 100%;
     border-radius: $radius;
@@ -73,13 +85,14 @@
   &__button {
     width: 50%;
     padding: mixins.rem(15px);
-    @include mixins.button($radius: $radius);
+    @include mixins.button($radius: $radius, $box-shadow: false);
     @include mixins.font($weight: var(--bolder-weight), $size: 14.45px);
   }
 }
 
-.contacts {
+.address {
   @include mixins.displayFlex(true, initial, center, mixins.rem());
+  font-style: normal;
 }
 
 .contact {
@@ -102,10 +115,11 @@
   @include mixins.displayFlex(false, center, space-between, mixins.rem());
 
   &__icon {
+    cursor: pointer;
     &:hover,
-    :active {
+    &:active {
       & .svg-inline--fa > path {
-        transition: ease-in-out 0.2s;
+        transition: 0.4s;
         fill: hsl(203, 89%, 53%);
       }
     }

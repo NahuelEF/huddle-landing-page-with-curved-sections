@@ -1,18 +1,52 @@
 @use "mixins";
 @use "variables";
 
+$padding: mixins.rem(20px);
+
 .main {
   width: 100vw;
   @include mixins.displayFlex(true, center, initial);
 }
 
 .section {
+  position: relative;
   width: 100vw;
   min-height: 90vh;
   padding: mixins.rem(variables.$padding);
-  @include mixins.displayFlex(true, center, center, mixins.rem(20px));
+  @include mixins.displayFlex(true, center, center, mixins.rem(85px));
   text-align: center;
-  border-top: 1px solid;
+
+  &:not(.section-1, .section-2) {
+    margin: mixins.rem(38px) 0;
+    padding: mixins.rem(variables.$padding * 3.4) mixins.rem(variables.$padding);
+  }
+
+  &-2 {
+    margin-bottom: mixins.rem(38px);
+    padding-bottom: mixins.rem(variables.$padding * 3.4);
+  }
+
+  &:is(.section-3, .section-5) {
+    background-color: var(--neutral-very-pale-blue);
+  }
+
+  &-3 {
+    &::before {
+      @include mixins.bgImage("section-top-mobile-1", 114px);
+    }
+    &::after {
+      @include mixins.bgImage("section-bottom-mobile-1", 103px);
+    }
+  }
+
+  &-5 {
+    &::before {
+      @include mixins.bgImage("section-top-mobile-2", 103px);
+    }
+    &::after {
+      @include mixins.bgImage("section-bottom-mobile-2", 101px);
+    }
+  }
 
   &__title {
     width: 100%;
@@ -46,6 +80,10 @@
     @include mixins.button();
     @include mixins.font($size: 14.45px, $weight: var(--bold-weight));
   }
+}
+
+.container {
+  @include mixins.displayFlex(true, center, center, $padding);
 }
 
 .list {
