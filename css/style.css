@@ -254,7 +254,15 @@ body {
   background-position: center;
   background-size: 100% 100%;
 }
-.section__title {
+
+.subsection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+}
+.subsection__title {
   width: 100%;
   font-family: var(--secondary-font-family);
   font-weight: var(--bolder-weight);
@@ -262,19 +270,20 @@ body {
   text-transform: capitalize;
   text-align: center;
 }
-.section__title--main {
+.subsection__title--main {
   font-family: var(--secondary-font-family);
   font-weight: var(--bolder-weight);
   font-size: 1.625rem;
 }
-.section__paragraph {
+.subsection__paragraph {
   width: 100%;
+  max-width: 425px;
   color: var(--neutral-very-dark-cyan);
   font-family: var(--primary-font-family);
   font-weight: var(--normal-weight);
   font-size: 0.903125rem;
 }
-.section__button {
+.subsection__button {
   padding: 0.8125rem 2.5625rem;
   border-radius: 50px;
   border: none;
@@ -288,16 +297,8 @@ body {
   font-weight: var(--bold-weight);
   font-size: 0.903125rem;
 }
-.section__button:is(:hover, :active) {
+.subsection__button:is(:hover, :active) {
   background-color: var(--primary-light-pink);
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1.25rem;
 }
 
 .list {
@@ -344,6 +345,19 @@ body {
   background-image: url(../images/icon-messages.svg);
 }
 
+@media screen and (min-width: 768px) {
+  .section:is(.section-3, .section-4, .section-5) {
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .section:is(.section-3, .section-4, .section-5) .section__img {
+    width: 50%;
+  }
+  .section:is(.section-3, .section-4, .section-5) :is(.subsection__title, .subsection__paragraph) {
+    text-align: start;
+  }
+}
 .footer {
   position: relative;
   color: var(--neutral-very-pale-blue);
@@ -399,7 +413,7 @@ body {
   text-align: center;
 }
 .subcontain__logo {
-  width: 50%;
+  width: min(50%, 10.21875rem);
 }
 .subcontain__link {
   color: var(--primary-pink);
