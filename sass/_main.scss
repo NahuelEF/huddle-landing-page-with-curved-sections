@@ -4,33 +4,23 @@
 $padding: mixins.rem(20px);
 
 .main {
-  width: 100vw;
-  @include mixins.displayFlex(true, center, initial);
+  width: 100%;
+  @include mixins.displayFlex(true, center, initial, mixins.rem(80px));
 }
 
 .section {
   position: relative;
-  width: 100vw;
+  width: 100%;
   min-height: 90vh;
-  padding: mixins.rem(variables.$padding);
+  padding: mixins.rem(64px) mixins.rem(variables.$padding);
   @include mixins.displayFlex(true, center, center, mixins.rem(85px));
   text-align: center;
 
-  &:not(.section-1, .section-2) {
-    margin: mixins.rem(38px) 0;
-    padding: mixins.rem(variables.$padding * 3.4) mixins.rem(variables.$padding);
-  }
-
-  &-2 {
-    margin-bottom: mixins.rem(38px);
-    padding-bottom: mixins.rem(variables.$padding * 3.4);
-  }
-
-  &:is(.section-3, .section-5) {
+  &:is(.section--1, .section--2) {
     background-color: var(--neutral-very-pale-blue);
   }
 
-  &-3 {
+  &--1 {
     &::before {
       @include mixins.bgImage("section-top-mobile-1", 114px);
     }
@@ -39,7 +29,7 @@ $padding: mixins.rem(20px);
     }
   }
 
-  &-5 {
+  &--2 {
     &::before {
       @include mixins.bgImage("section-top-mobile-2", 103px);
     }
@@ -51,6 +41,7 @@ $padding: mixins.rem(20px);
 
 .subsection {
   @include mixins.displayFlex(true, center, center, $padding);
+
   &__title {
     width: 100%;
     @include mixins.font(
@@ -98,13 +89,13 @@ $padding: mixins.rem(20px);
   @include mixins.displayFlex(true, center, start, 0.5rem);
 
   &__icon {
-    $contain: 40px;
+    $contain: 35px;
     width: mixins.rem($contain);
     height: mixins.rem($contain);
     background: {
       repeat: no-repeat;
       position: center center;
-      size: contain;
+      size: 100%;
     }
     align-self: flex-start;
   }
@@ -114,9 +105,9 @@ $padding: mixins.rem(20px);
   }
 
   &__paragraph {
-    color: var(--neutral-gray);
     @include mixins.font($size: 14.45px);
     text-transform: capitalize;
+    opacity: 0.65;
   }
 }
 

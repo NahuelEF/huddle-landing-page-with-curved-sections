@@ -3,12 +3,16 @@
 
 .header {
   width: 100%;
-  padding: mixins.rem(variables.$padding);
+  padding: mixins.rem(variables.$padding * 1.5) mixins.rem(variables.$padding);
   @include mixins.displayFlex($align: center, $justify: space-between);
+
+  @include mixins.media() {
+    padding: mixins.rem(variables.$padding-desktop);
+  }
 }
 
 .home {
-  max-width: mixins.rem(100px);
+  width: min(mixins.rem(150px), 40%);
   &__img {
     width: 100%;
   }
@@ -19,6 +23,6 @@
   &__button {
     padding: mixins.rem(4px) mixins.rem(10px);
     @include mixins.button(true);
-    @include mixins.font($size: 14px, $weight: var(--lighter-weight));
+    @include mixins.font($size: 14px);
   }
 }

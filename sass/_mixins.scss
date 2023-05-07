@@ -30,11 +30,13 @@ $font-size: 16px;
     }
   } @else {
     border: none;
-    background-color: var(--primary-pink);
-    color: var(--neutral-very-pale-blue);
     @if ($box-shadow) {
+      margin: 25px 0;
       box-shadow: 0 0.2rem 0.5rem var(--neutral-gray);
     }
+    background-color: var(--primary-pink);
+    color: var(--neutral-very-pale-blue);
+
     &:is(:hover, :active) {
       background-color: var(--primary-light-pink);
     }
@@ -61,6 +63,7 @@ $font-size: 16px;
   content: "";
   position: absolute;
   z-index: 1;
+  left: 0;
   @if (string.index($url, "top")) {
     top: -#{rem($size)};
   }
