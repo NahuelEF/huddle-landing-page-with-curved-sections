@@ -1,26 +1,30 @@
 @use "mixins";
 @use "variables";
 
-$padding: mixins.rem(20px);
+$padding-subsection: mixins.rem(20px);
+$padding-mobile: mixins.rem(64px) mixins.rem(24px);
+$padding-desktop: mixins.rem(120px) mixins.rem(80px);
+
+/* --- MAIN --- */
 
 .main {
   width: 100%;
-  @include mixins.displayFlex(true, center, initial, mixins.rem(80px));
+  @include mixins.displayFlex(column, center, initial, mixins.rem(80px));
 }
 
 .section {
   position: relative;
   width: 100%;
   min-height: 90vh;
-  padding: mixins.rem(64px) mixins.rem(variables.$padding);
-  @include mixins.displayFlex(true, center, center, mixins.rem(85px));
+  padding: $padding-mobile;
+  @include mixins.displayFlex(column, center, center, mixins.rem(85px));
   text-align: center;
 
-  &:is(.section--1, .section--2) {
+  &:is(.section-2, .section-4) {
     background-color: var(--neutral-very-pale-blue);
   }
 
-  &--1 {
+  &-2 {
     &::before {
       @include mixins.bgImage("section-top-mobile-1", 114px);
     }
@@ -29,7 +33,7 @@ $padding: mixins.rem(20px);
     }
   }
 
-  &--2 {
+  &-4 {
     &::before {
       @include mixins.bgImage("section-top-mobile-2", 103px);
     }
@@ -37,10 +41,65 @@ $padding: mixins.rem(20px);
       @include mixins.bgImage("section-bottom-mobile-2", 101px);
     }
   }
+
+  &-5 {
+    padding-top: 0;
+  }
+
+  @include mixins.media() {
+    padding: $padding-desktop;
+
+    &__img--main {
+      width: 70%;
+    }
+
+    &:is(.section-2, .section-4) {
+      @include mixins.displayFlex(row-reverse, center, space-between);
+    }
+
+    &:is(.section-2, .section-3, .section-4) {
+      & .section__img {
+        width: 50%;
+      }
+
+      & :is(.subsection__title, .subsection__paragraph) {
+        text-align: start;
+      }
+    }
+
+    &-3 {
+      @include mixins.displayFlex(row, center, space-between);
+    }
+
+    &-2 {
+      &::before {
+        @include mixins.bgImage("section-top-desktop-1", 165px);
+      }
+      &::after {
+        @include mixins.bgImage("section-bottom-desktop-1", 139px);
+      }
+    }
+
+    &-4 {
+      &::before {
+        @include mixins.bgImage("section-top-desktop-2", 156px);
+      }
+      &::after {
+        @include mixins.bgImage("section-bottom-desktop-2", 139px);
+      }
+    }
+
+    &-5 {
+      padding: {
+        top: 0;
+        bottom: mixins.rem(156.8px);
+      }
+    }
+  }
 }
 
 .subsection {
-  @include mixins.displayFlex(true, center, center, $padding);
+  @include mixins.displayFlex(column, center, center, $padding-subsection);
 
   &__title {
     width: 100%;
@@ -65,9 +124,13 @@ $padding: mixins.rem(20px);
 
   &__paragraph {
     width: 100%;
-    max-width: 425px;
+    max-width: 465px;
     color: var(--neutral-very-dark-cyan);
     @include mixins.font($size: 14.45px);
+
+    &--main {
+      max-width: 425px;
+    }
   }
 
   &__button {
@@ -86,7 +149,7 @@ $padding: mixins.rem(20px);
 }
 
 .item {
-  @include mixins.displayFlex(true, center, start, 0.5rem);
+  @include mixins.displayFlex(column, center, start, 0.5rem);
 
   &__icon {
     $contain: 35px;
@@ -117,20 +180,4 @@ $padding: mixins.rem(20px);
 
 .messages {
   background-image: url(../images/icon-messages.svg);
-}
-
-@include mixins.media() {
-  .section:is(.section-3, .section-4, .section-5) {
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: space-between;
-
-    & .section__img {
-      width: 50%;
-    }
-
-    & :is(.subsection__title, .subsection__paragraph) {
-      text-align: start;
-    }
-  }
 }

@@ -1,13 +1,18 @@
 @use "mixins";
 @use "variables";
 
+/* --- HEADER --- */
+
+$padding-mobile: mixins.rem(36px) mixins.rem(24px);
+$padding-desktop: mixins.rem(60px);
+
 .header {
   width: 100%;
-  padding: mixins.rem(variables.$padding * 1.5) mixins.rem(variables.$padding);
+  padding: $padding-mobile;
   @include mixins.displayFlex($align: center, $justify: space-between);
 
   @include mixins.media() {
-    padding: mixins.rem(variables.$padding-desktop);
+    padding: mixins.rem($padding-desktop);
   }
 }
 

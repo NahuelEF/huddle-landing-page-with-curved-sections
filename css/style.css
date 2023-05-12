@@ -14,6 +14,7 @@
   --bolder-weight: 700;
 }
 
+/* --- RESET --- */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation: none !important;
@@ -138,6 +139,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* --- HEADER --- */
 .header {
   width: 100%;
   padding: 2.25rem 1.5rem;
@@ -147,7 +149,7 @@ body {
 }
 @media screen and (min-width: 768px) {
   .header {
-    padding: 3.75rem;
+    padding: 3.75rem/16pxrem;
   }
 }
 
@@ -180,6 +182,7 @@ body {
   box-shadow: 0 0 0.3rem;
 }
 
+/* --- MAIN --- */
 .main {
   width: 100%;
   display: flex;
@@ -201,15 +204,15 @@ body {
   gap: 5.3125rem;
   text-align: center;
 }
-.section:is(.section--1, .section--2) {
+.section:is(.section-2, .section-4) {
   background-color: var(--neutral-very-pale-blue);
 }
-.section--1::before {
+.section-2::before {
   content: "";
   position: absolute;
   z-index: 1;
   left: 0;
-  top: -7.125rem;
+  top: -7.0625rem;
   width: 100%;
   height: 7.125rem;
   background-image: url(../images/bg-section-top-mobile-1.svg);
@@ -217,12 +220,12 @@ body {
   background-position: center;
   background-size: 100% 100%;
 }
-.section--1::after {
+.section-2::after {
   content: "";
   position: absolute;
   z-index: 1;
   left: 0;
-  bottom: -6.4375rem;
+  bottom: -6.375rem;
   width: 100%;
   height: 6.4375rem;
   background-image: url(../images/bg-section-bottom-mobile-1.svg);
@@ -230,12 +233,12 @@ body {
   background-position: center;
   background-size: 100% 100%;
 }
-.section--2::before {
+.section-4::before {
   content: "";
   position: absolute;
   z-index: 1;
   left: 0;
-  top: -6.4375rem;
+  top: -6.375rem;
   width: 100%;
   height: 6.4375rem;
   background-image: url(../images/bg-section-top-mobile-2.svg);
@@ -243,18 +246,103 @@ body {
   background-position: center;
   background-size: 100% 100%;
 }
-.section--2::after {
+.section-4::after {
   content: "";
   position: absolute;
   z-index: 1;
   left: 0;
-  bottom: -6.3125rem;
+  bottom: -6.25rem;
   width: 100%;
   height: 6.3125rem;
   background-image: url(../images/bg-section-bottom-mobile-2.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;
+}
+.section-5 {
+  padding-top: 0;
+}
+@media screen and (min-width: 768px) {
+  .section {
+    padding: 7.5rem 5rem;
+  }
+  .section__img--main {
+    width: 70%;
+  }
+  .section:is(.section-2, .section-4) {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .section:is(.section-2, .section-3, .section-4) .section__img {
+    width: 50%;
+  }
+  .section:is(.section-2, .section-3, .section-4) :is(.subsection__title, .subsection__paragraph) {
+    text-align: start;
+  }
+  .section-3 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .section-2::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: -10.25rem;
+    width: 100%;
+    height: 10.3125rem;
+    background-image: url(../images/bg-section-top-desktop-1.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+  }
+  .section-2::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    bottom: -8.625rem;
+    width: 100%;
+    height: 8.6875rem;
+    background-image: url(../images/bg-section-bottom-desktop-1.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+  }
+  .section-4::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: -9.6875rem;
+    width: 100%;
+    height: 9.75rem;
+    background-image: url(../images/bg-section-top-desktop-2.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+  }
+  .section-4::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    bottom: -8.625rem;
+    width: 100%;
+    height: 8.6875rem;
+    background-image: url(../images/bg-section-bottom-desktop-2.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+  }
+  .section-5 {
+    padding-top: 0;
+    padding-bottom: 9.8rem;
+  }
 }
 
 .subsection {
@@ -279,11 +367,14 @@ body {
 }
 .subsection__paragraph {
   width: 100%;
-  max-width: 425px;
+  max-width: 465px;
   color: var(--neutral-very-dark-cyan);
   font-family: var(--primary-font-family);
   font-weight: var(--normal-weight);
   font-size: 0.903125rem;
+}
+.subsection__paragraph--main {
+  max-width: 425px;
 }
 .subsection__button {
   padding: 0.8125rem 2.5625rem;
@@ -348,19 +439,7 @@ body {
   background-image: url(../images/icon-messages.svg);
 }
 
-@media screen and (min-width: 768px) {
-  .section:is(.section-3, .section-4, .section-5) {
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .section:is(.section-3, .section-4, .section-5) .section__img {
-    width: 50%;
-  }
-  .section:is(.section-3, .section-4, .section-5) :is(.subsection__title, .subsection__paragraph) {
-    text-align: start;
-  }
-}
+/* --- FOOTER --- */
 .footer {
   position: relative;
   color: var(--neutral-very-pale-blue);
@@ -371,7 +450,7 @@ body {
   position: absolute;
   z-index: 1;
   left: 0;
-  top: -3.3125rem;
+  top: -3.25rem;
   width: 100%;
   height: 3.3125rem;
   background-image: url(../images/bg-footer-top-mobile.svg);
@@ -379,8 +458,42 @@ body {
   background-position: center;
   background-size: 100% 100%;
 }
+@media screen and (min-width: 768px) {
+  .footer {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: start;
+    justify-content: space-between;
+  }
+  .footer::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: -9.8125rem;
+    width: 100%;
+    height: 9.875rem;
+    background-image: url(../images/bg-footer-top-desktop.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+  }
+  .footer .contain {
+    padding: 7.5rem 5rem;
+  }
+  .footer .subcontain__paragraph {
+    max-width: 21.5625rem;
+  }
+  .footer .form {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-between;
+  }
+}
 
 .contain {
+  width: 100%;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -414,7 +527,6 @@ body {
   font-family: var(--primary-font-family);
   font-weight: var(--normal-weight);
   font-size: 0.75rem;
-  text-align: center;
 }
 .subcontain__logo {
   width: min(50%, 10.21875rem);

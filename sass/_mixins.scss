@@ -8,11 +8,9 @@ $font-size: 16px;
   @return #{$size}rem;
 }
 
-@mixin displayFlex($direction: false, $align, $justify, $gap: null) {
+@mixin displayFlex($direction: null, $align, $justify, $gap: null) {
   display: flex;
-  @if ($direction) {
-    flex-direction: column;
-  }
+  flex-direction: $direction;
   align-items: $align;
   justify-content: $justify;
   gap: $gap;
@@ -64,11 +62,11 @@ $font-size: 16px;
   position: absolute;
   z-index: 1;
   left: 0;
-  @if (string.index($url, "top")) {
-    top: -#{rem($size)};
+  @if (string.index($url, "-top")) {
+    top: -#{rem($size - 1)};
   }
-  @if (string.index($url, "bottom")) {
-    bottom: -#{rem($size)};
+  @if (string.index($url, "-bottom")) {
+    bottom: -#{rem($size - 1)};
   }
   width: 100%;
   height: rem($size);

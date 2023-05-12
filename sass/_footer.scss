@@ -1,6 +1,11 @@
 @use "mixins";
 @use "variables";
 
+/* --- FOOTER --- */
+
+$padding-mobile: mixins.rem(24px);
+$padding-desktop: mixins.rem(120px) mixins.rem(80px);
+
 .footer {
   position: relative;
   color: var(--neutral-very-pale-blue);
@@ -9,16 +14,37 @@
   &::before {
     @include mixins.bgImage("footer-top-mobile", 53px);
   }
+
+  @include mixins.media() {
+    @include mixins.displayFlex(row-reverse, start, space-between);
+
+    &::before {
+      @include mixins.bgImage("footer-top-desktop", 158px);
+    }
+
+    .contain {
+      padding: $padding-desktop;
+    }
+
+    .subcontain__paragraph {
+      max-width: mixins.rem(345px);
+    }
+
+    .form {
+      @include mixins.displayFlex(row, $align: start, $justify: space-between);
+    }
+  }
 }
 
 .contain {
-  padding: mixins.rem(variables.$padding);
-  @include mixins.displayFlex(true, start, center, mixins.rem(36px));
+  width: 100%;
+  padding: $padding-mobile;
+  @include mixins.displayFlex(column, start, center, mixins.rem(36px));
 }
 
 .subcontain {
   width: 100%;
-  @include mixins.displayFlex(true, initial, center, mixins.rem());
+  @include mixins.displayFlex(column, initial, center, mixins.rem());
 
   &__title {
     text-transform: uppercase;
@@ -32,7 +58,6 @@
 
     &--size {
       @include mixins.font($size: 12px);
-      text-align: center;
     }
   }
 
@@ -55,7 +80,7 @@
   $radius: 5px;
 
   width: 100%;
-  @include mixins.displayFlex(true, end, center, mixins.rem());
+  @include mixins.displayFlex(column, end, center, mixins.rem());
 
   &__label {
     width: 100%;
@@ -91,7 +116,7 @@
 }
 
 .address {
-  @include mixins.displayFlex(true, initial, center, mixins.rem());
+  @include mixins.displayFlex(column, initial, center, mixins.rem());
   font-style: normal;
 }
 
@@ -112,7 +137,11 @@
 }
 
 .icons {
-  @include mixins.displayFlex(false, center, space-between, mixins.rem());
+  @include mixins.displayFlex(
+    $align: center,
+    $justify: space-between,
+    $gap: mixins.rem()
+  );
 
   &__icon {
     cursor: pointer;
